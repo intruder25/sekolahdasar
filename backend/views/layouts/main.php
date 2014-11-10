@@ -9,6 +9,10 @@ use yii\widgets\Breadcrumbs;
 /* @var $content string */
 
 AppAsset::register($this);
+
+// check page title string
+$pageTitle = isset($this->params['page-title'])?$this->params['page-title']:"";
+$pageSubTitle  = isset($this->params['page-subtitle'])?$this->params['page-subtitle']:"";
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -22,7 +26,7 @@ AppAsset::register($this);
 </head>
 <body>
     <?php $this->beginBody() ?>
-    <div class="wrap">
+   	<header class="row">
         <?php
             NavBar::begin([
                 'brandLabel' => 'My Company',
@@ -31,33 +35,46 @@ AppAsset::register($this);
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
-            $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
+            $menuItems1 = [
+                ['label' => 'Dashboard', 'url' => ['/site/index']],
             ];
+			$menuItems2 = [];
             if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+                $menuItems2[] = ['label' => 'Login', 'url' => ['/site/login']];
             } else {
-                $menuItems[] = [
+                $menuItems2[] = [
                     'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ];
             }
+			
+			echo Nav::widget([
+                'options' => ['class' => 'navbar-nav'],
+                'items' => $menuItems1,
+            ]);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => $menuItems,
+                'items' => $menuItems2,
             ]);
             NavBar::end();
         ?>
-
-        <div class="container">
+	</header>
+        
+	<div class="container maincontainer">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">
+                    <?php echo $pageTitle; ?> <small><?php echo $pageSubTitle; ?></small>
+                </h2>
+            </div>
+        </div>
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= $content ?>
-        </div>
     </div>
-
+        
     <footer class="footer">
         <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
