@@ -1,14 +1,14 @@
 <?php
 /* @var $this yii\web\View */
 use rmrevin\yii\fontawesome\FA;
-use wimara\yii\calendar\AutoloadExample;
+use wimara\yii\calendar\BootstrapCalendar;
 
 $this->title = 'Dashboard';
 $this->params['page-title'] = 'Dashboard';
 $this->params['page-subtitle'] = 'Statistic overview';
 $this->params['breadcrumbs'][] = ['label'=>'Dashboard','template' =>'<li>'.FA::icon('dashboard').' {link}</li>'];
 ?>
-<?= AutoloadExample::widget() ?>
+
 <div class="clearfix s-row">
 	<div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
@@ -96,6 +96,29 @@ $this->params['breadcrumbs'][] = ['label'=>'Dashboard','template' =>'<li>'.FA::i
                     <div class="clearfix"></div>
                 </div>
             </a>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix s-row">
+	<div class="col-md-9">
+    	<div class="clearfix">
+			<?= BootstrapCalendar::navigation() ?>
+        </div>
+        <div class="clearfix">
+        	<?= BootstrapCalendar::mainCalendar() ?>
+        </div>
+    </div>
+    <div class="col-md-3">
+    	<div class="panel panel-default">
+            <div class="panel-heading">
+            	<h3 class="panel-title">Add Event</h3>
+            </div>
+            <div class="panel-body">
+            	<?= $this->render('_formEvent', [
+					'model' => $modelEvent,
+				]) ?>
+            </div>
         </div>
     </div>
 </div>

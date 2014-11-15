@@ -21,11 +21,10 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/sb-admin.css',
     ];
-    public $js = [
-    ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         '\rmrevin\yii\fontawesome\AssetBundle',
+		'\wimara\yii\calendar\AssetBundle',
     ];
 }
