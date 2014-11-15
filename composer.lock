@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "04d53b6922376a57407dbecb36083daf",
+    "hash": "9ffdd4249e0dcd3ee7dd9008cc518a64",
     "packages": [
         {
             "name": "2amigos/yii2-google-maps-library",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/2amigos/yii2-google-maps-library.git",
-                "reference": "5b21da42b464eb5f9f216e19b8456e1d20e8fcdc"
+                "reference": "179c030cfc747791ad3f2203010f83e2cdf052ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2amigos/yii2-google-maps-library/zipball/5b21da42b464eb5f9f216e19b8456e1d20e8fcdc",
-                "reference": "5b21da42b464eb5f9f216e19b8456e1d20e8fcdc",
+                "url": "https://api.github.com/repos/2amigos/yii2-google-maps-library/zipball/179c030cfc747791ad3f2203010f83e2cdf052ea",
+                "reference": "179c030cfc747791ad3f2203010f83e2cdf052ea",
                 "shasum": ""
             },
             "require": {
@@ -54,20 +54,20 @@
                 "maps",
                 "yii"
             ],
-            "time": "2014-11-05 15:29:48"
+            "time": "2014-11-10 11:00:48"
         },
         {
             "name": "bower-asset/bootstrap",
-            "version": "v3.3.0",
+            "version": "v3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "16dbdbd7a2c6cfa3be4e5dcc52249e577c02c84a"
+                "reference": "9a7e365c2c4360335d25246dac11afb1f577210a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/16dbdbd7a2c6cfa3be4e5dcc52249e577c02c84a",
-                "reference": "16dbdbd7a2c6cfa3be4e5dcc52249e577c02c84a",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/9a7e365c2c4360335d25246dac11afb1f577210a",
+                "reference": "9a7e365c2c4360335d25246dac11afb1f577210a",
                 "shasum": ""
             },
             "require": {
@@ -177,16 +177,16 @@
         },
         {
             "name": "bower-asset/jquery.inputmask",
-            "version": "3.1.37",
+            "version": "3.1.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
-                "reference": "c40c5c0abaf42b35139cdf97569b1ef1fad3a3d9"
+                "reference": "464cddbdea65411896468f40321e68abcc75a34c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/c40c5c0abaf42b35139cdf97569b1ef1fad3a3d9",
-                "reference": "c40c5c0abaf42b35139cdf97569b1ef1fad3a3d9",
+                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/464cddbdea65411896468f40321e68abcc75a34c",
+                "reference": "464cddbdea65411896468f40321e68abcc75a34c",
                 "shasum": ""
             },
             "require": {
@@ -387,6 +387,54 @@
             "time": "2013-11-30 08:25:19"
         },
         {
+            "name": "fortawesome/font-awesome",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "a65bd93d81e9e6bd5ebfa41757a4474960b973b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/a65bd93d81e9e6bd5ebfa41757a4474960b973b4",
+                "reference": "a65bd93d81e9e6bd5ebfa41757a4474960b973b4",
+                "shasum": ""
+            },
+            "require-dev": {
+                "jekyll": "1.0.2",
+                "lessc": "1.4.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OFL-1.1",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Gandy",
+                    "email": "dave@fontawesome.io",
+                    "homepage": "http://twitter.com/davegandy",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The iconic font and CSS framework",
+            "homepage": "http://fontawesome.io/",
+            "keywords": [
+                "FontAwesome",
+                "awesome",
+                "bootstrap",
+                "font",
+                "icon"
+            ],
+            "time": "2014-08-26 16:36:44"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "4.2.3",
             "source": {
@@ -505,6 +553,51 @@
             "time": "2014-08-17 21:15:53"
         },
         {
+            "name": "rmrevin/yii2-fontawesome",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rmrevin/yii2-fontawesome.git",
+                "reference": "3eca90803f7ab9c72d4aba46ae27ab65fc8626de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/3eca90803f7ab9c72d4aba46ae27ab65fc8626de",
+                "reference": "3eca90803f7ab9c72d4aba46ae27ab65fc8626de",
+                "shasum": ""
+            },
+            "require": {
+                "fortawesome/font-awesome": "4.2.*",
+                "yiisoft/yii2": "2.0.*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "rmrevin\\yii\\fontawesome\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Revin",
+                    "email": "xgismox@gmail.com",
+                    "homepage": "http://rmrevin.ru/"
+                }
+            ],
+            "description": "Asset Bundle for Yii2 with Font Awesome",
+            "keywords": [
+                "asset",
+                "awesome",
+                "bundle",
+                "font",
+                "yii"
+            ],
+            "time": "2014-10-19 07:39:07"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "dev-master",
             "source": {
@@ -562,12 +655,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "ff49174160a0e43b2379409c817ecbf56a7a8b44"
+                "reference": "6d94671fc6ef82e8e8a01a6ba286481630936cb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ff49174160a0e43b2379409c817ecbf56a7a8b44",
-                "reference": "ff49174160a0e43b2379409c817ecbf56a7a8b44",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/6d94671fc6ef82e8e8a01a6ba286481630936cb4",
+                "reference": "6d94671fc6ef82e8e8a01a6ba286481630936cb4",
                 "shasum": ""
             },
             "require": {
@@ -642,7 +735,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-11-07 16:30:25"
+            "time": "2014-11-14 02:28:47"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -650,12 +743,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "65130c9a7e56d54350470eb70c820d30082c708c"
+                "reference": "b9d20fdeac0720ec73c7db8644775d0c9be8a6b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/65130c9a7e56d54350470eb70c820d30082c708c",
-                "reference": "65130c9a7e56d54350470eb70c820d30082c708c",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/b9d20fdeac0720ec73c7db8644775d0c9be8a6b9",
+                "reference": "b9d20fdeac0720ec73c7db8644775d0c9be8a6b9",
                 "shasum": ""
             },
             "require": {
@@ -688,7 +781,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2014-11-07 22:41:01"
+            "time": "2014-11-12 19:54:03"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -822,12 +915,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "8f673c9e31c1aa5ce1e4d289be55c2384ee0ffd2"
+                "reference": "44eae4deeb065454e68b3c9911181285f01003c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/8f673c9e31c1aa5ce1e4d289be55c2384ee0ffd2",
-                "reference": "8f673c9e31c1aa5ce1e4d289be55c2384ee0ffd2",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44eae4deeb065454e68b3c9911181285f01003c6",
+                "reference": "44eae4deeb065454e68b3c9911181285f01003c6",
                 "shasum": ""
             },
             "require": {
@@ -844,9 +937,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Faker": "src/",
-                    "Faker\\PHPUnit": "test/"
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -864,7 +956,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-11-07 08:38:46"
+            "time": "2014-11-12 17:27:49"
         },
         {
             "name": "phpspec/php-diff",

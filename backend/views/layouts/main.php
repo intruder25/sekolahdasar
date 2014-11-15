@@ -61,17 +61,23 @@ $pageSubTitle  = isset($this->params['page-subtitle'])?$this->params['page-subti
         ?>
 	</header>
         
-	<div class="container maincontainer">
-        <div class="row">
+	<div class="row maincontainer">
+        <div class="clearfix s-row">
             <div class="col-lg-12">
                 <h2 class="page-header">
                     <?php echo $pageTitle; ?> <small><?php echo $pageSubTitle; ?></small>
                 </h2>
             </div>
         </div>
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        <div class="clearfix s-row">
+			<?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                'options'=>[
+                                'style'=>'margin-left:15px;margin-right:15px;',
+                                'class' => 'breadcrumb'
+                            ]
+            ]) ?>
+        </div>
         <?= $content ?>
     </div>
         

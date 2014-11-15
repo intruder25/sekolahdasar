@@ -126,3 +126,9 @@ a.desc:after {
 .maincontainer{
 	margin-top:30px;	
 }
+
+.s-row{
+	display:block;
+	margin-left:15px;
+	margin-right:15px;	
+}
