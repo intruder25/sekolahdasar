@@ -37,6 +37,7 @@ $pageSubTitle  = isset($this->params['page-subtitle'])?$this->params['page-subti
             ]);
             $menuItems1 = [
                 ['label' => 'Dashboard', 'url' => ['/site/index']],
+				['label' => 'Data Siswa', 'url' => ['/siswa/index']],
             ];
 			$menuItems2 = [];
             if (Yii::$app->user->isGuest) {

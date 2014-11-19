@@ -5,6 +5,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use common\models\LoginForm;
+use common\models\Event;
 use yii\filters\VerbFilter;
 
 /**
@@ -55,7 +56,10 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+		$modelEvent = new Event();
+        return $this->render('index', [
+			'modelEvent'=>$modelEvent
+		]);
     }
 
     public function actionLogin()

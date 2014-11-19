@@ -3,17 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Event;
-use app\models\EventSearch;
+use app\models\Siswa;
+use app\models\SiswaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\db\Query;
 
 /**
- * EventController implements the CRUD actions for Event model.
+ * SiswaController implements the CRUD actions for Siswa model.
  */
-class EventController extends Controller
+class SiswaController extends Controller
 {
     public function behaviors()
     {
@@ -28,14 +27,14 @@ class EventController extends Controller
     }
 
     /**
-     * Lists all Event models.
+     * Lists all Siswa models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new EventSearch();
+        $searchModel = new SiswaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+		
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -43,7 +42,7 @@ class EventController extends Controller
     }
 
     /**
-     * Displays a single Event model.
+     * Displays a single Siswa model.
      * @param integer $id
      * @return mixed
      */
@@ -55,20 +54,16 @@ class EventController extends Controller
     }
 
     /**
-     * Creates a new Event model.
+     * Creates a new Siswa model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Event();
+        $model = new Siswa();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			Yii::$app->response->format = 'json';
-            return [
-                'message' => 'Success!!!',
-            ];
-            //return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->idSiswa]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -77,7 +72,7 @@ class EventController extends Controller
     }
 
     /**
-     * Updates an existing Event model.
+     * Updates an existing Siswa model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +91,7 @@ class EventController extends Controller
     }
 
     /**
-     * Deletes an existing Event model.
+     * Deletes an existing Siswa model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -108,46 +103,16 @@ class EventController extends Controller
         return $this->redirect(['index']);
     }
 
-	public function actionCalendar($from,$to,$browser_timezone){
-		$from = date('Y-m-d', ($from/1000));
-		$to = date('Y-m-d', ($to/1000));
-		$query = new Query();
-		$query->select('id, url, eventName as title, eventColor as class, startTime as start, endTime as end')->from('event')->where(['between','startTime',$from,$to])->andWhere(['between','endTime',$from,$to]);
-		
-		//$command = $query->createCommand();
-		//echo $command->sql;
-		// $command->sql returns the actual SQL
-		//$rows = $command->queryAll();
-		//$eventData = Event::find()->where(['between','startTime',$from,$to])->andWhere(['between','endTime',$from,$to])->all();
-		$_eventData = $query->all();
-		$eventData = array();
-		Yii::$app->response->format = 'json';
-		foreach($_eventData as $d){
-			$eventData[] = array(
-				"id"	=> $d['id'],
-				"title" => $d['title'],
-				"url" 	=> $d['url'],
-				"class"	=> $d['class'],
-				"start"	=> strtotime($d['start']) . '000',
-				"end"	=> strtotime($d['end']) . '000',
-			);
-		}
-		return [
-			"success"=> 1,
-			"result"=> $eventData
-		];
-	}
-
     /**
-     * Finds the Event model based on its primary key value.
+     * Finds the Siswa model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Event the loaded model
+     * @return Siswa the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Event::findOne($id)) !== null) {
+        if (($model = Siswa::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

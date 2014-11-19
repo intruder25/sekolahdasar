@@ -1,6 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 use rmrevin\yii\fontawesome\FA;
+use yii\helpers\Url;
 use wimara\yii\calendar\BootstrapCalendar;
 
 $this->title = 'Dashboard';
@@ -103,10 +104,16 @@ $this->params['breadcrumbs'][] = ['label'=>'Dashboard','template' =>'<li>'.FA::i
 <div class="clearfix s-row">
 	<div class="col-md-9">
     	<div class="clearfix">
-			<?= BootstrapCalendar::navigation() ?>
+			<?= BootstrapCalendar::navigation([
+				"idNextButton"=>"calendar-next-button",
+				"idTodayButton"=>"calendar-today-button",
+				"idPreviousButton"=>"calendar-prev-button",
+			]) ?>
         </div>
         <div class="clearfix">
-        	<?= BootstrapCalendar::mainCalendar() ?>
+        	<?= BootstrapCalendar::mainCalendar([
+				"eventsSource"=>Url::to(["event/calendar"])
+			]) ?>
         </div>
     </div>
     <div class="col-md-3">
@@ -115,10 +122,41 @@ $this->params['breadcrumbs'][] = ['label'=>'Dashboard','template' =>'<li>'.FA::i
             	<h3 class="panel-title">Add Event</h3>
             </div>
             <div class="panel-body">
-            	<?= $this->render('_formEvent', [
-					'model' => $modelEvent,
-				]) ?>
+            	<div class="row hide" id="loader-event"> 
+                	<div class="col-md-12">
+	            		<div class="loader">Loading...</div>
+                    </div>
+                </div>
+            	<div class="row" id="event-form">
+                	<div class="col-md-12">
+						<?= $this->render('_formEvent', [
+                            'model' => $modelEvent,
+                            'eventClass' =>BootstrapCalendar::listEventClass(),
+                        ]) ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<?php
+	$this->registerJs('
+		$("#btn-form-event").click(function(e){
+			data_ = $("#form-event-small").serialize();
+			$.ajax({
+				url:"'.Url::to(["event/create"]).'",
+				type:"POST",
+				data:data_,
+				beforeSend:function(e){
+					$("#event-form").addClass("hide");
+					$("#loader-form").removeClass("hide");
+				}
+			}).done(function(data,message){
+				$("#event-form").removeClass("hide");
+				$("#loader-form").addClass("hide");
+				$("#calendar-today-button").click();
+			});
+		});
+	');
+?>
