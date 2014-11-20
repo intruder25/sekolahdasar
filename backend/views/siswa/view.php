@@ -11,7 +11,7 @@ $this->title = 'Siswa';
 $this->params['page-title'] = 'Data Siswa';
 $this->params['page-subtitle'] = 'Informasi data siswa';
 $this->params['breadcrumbs'][] = ['label'=>'Data Siswa','template' =>'<li>'.FA::icon('graduation-cap').' {link}</li>', 'url' => ['index']];
-$this->params['breadcrumbs'][] = 'Detail data siswa';
+$this->params['breadcrumbs'][] = $model->nama;
 ?>
 <div class="clearfix s-row" style="margin-bottom:10px;">
 	<div class="col-md-2 col-md-offset-10">

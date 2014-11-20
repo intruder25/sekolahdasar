@@ -7,13 +7,17 @@ use kartik\date\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model app\models\Siswa */
 /* @var $form yii\widgets\ActiveForm */
+
+if($model->id==''){
+	$model->nomorInduk= $model->getNim();
+}
 ?>
 
 <div class="row">
-
+	
     <?php $form = ActiveForm::begin(); ?>
 	<div class="col-md-6">
-    <?= $form->field($model, 'nomorInduk')->textInput(['maxlength' => 50, 'value'=>$model->getNim()]) ?>
+    <?= $form->field($model, 'nomorInduk')->textInput(['maxlength' => 50, 'value'=>$model->nomorInduk, 'readonly'=>'readonly']) ?>
 
     <?= $form->field($model, 'nama')->textInput(['maxlength' => 150]) ?>
 	

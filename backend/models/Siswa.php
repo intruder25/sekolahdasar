@@ -32,6 +32,8 @@ use Yii;
  */
 class Siswa extends \yii\db\ActiveRecord
 {
+	
+	public $maxId=0;
     /**
      * @inheritdoc
      */
@@ -101,9 +103,9 @@ class Siswa extends \yii\db\ActiveRecord
 		/// year-idsiswa
 		$yy = date('y');
 		$_idSiswa = $this->findBySql('SELECT max(id) as maxId FROM '.self::tableName())->all();
-		print_r($_idSiswa[0]);
+		//print_r($_idSiswa[0]);
 		$idSiswa = 0;
-		//$idSiswa = $_idSiswa[0]['maxId']+1;
+		$idSiswa = $_idSiswa[0]['maxId']+1;
 		
 		return $yy.'-'.str_pad($idSiswa,5,'0',STR_PAD_LEFT);
 	}
