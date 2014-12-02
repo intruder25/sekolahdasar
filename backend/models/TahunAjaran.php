@@ -27,10 +27,11 @@ class TahunAjaran extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'periodeTahun'], 'required'],
+            [['periodeTahun'], 'required'],
             [['id'], 'integer'],
             [['statusAktif'], 'string'],
-            [['periodeTahun'], 'string', 'max' => 50]
+            [['periodeTahun'], 'string', 'max' => 50],
+			[['periodeTahun'], 'unique']
         ];
     }
 

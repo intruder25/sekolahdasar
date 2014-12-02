@@ -10,16 +10,19 @@ use yii\widgets\ActiveForm;
 
 <div class="tahun-ajaran-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+	]); ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
-
-    <?= $form->field($model, 'periodeTahun')->textInput(['maxlength' => 50]) ?>
+    <?= $form->field($model, 'periodeTahun')->textInput(['maxlength' => 50,'enableAjaxValidation'=>true]) ?>
 
     <?= $form->field($model, 'statusAktif')->dropDownList([ 'Aktif' => 'Aktif', 'Deleted' => 'Deleted', 'Tidak Aktif' => 'Tidak Aktif', ], ['prompt' => '']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    	<div class="col-md-4 col-md-offset-8">
+        <?= //Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'])
+			Html::button('Simpan', ['class' => 'btn btn-success', 'id'=>'simpan-tahun-ajaran'])
+		 ?>
+         </div>
     </div>
 
     <?php ActiveForm::end(); ?>
