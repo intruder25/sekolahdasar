@@ -27,4 +27,7 @@ class AppAsset extends AssetBundle
         '\rmrevin\yii\fontawesome\AssetBundle',
 		'\wimara\yii\calendar\AssetBundle',
     ];
+	public $js = [
+        'js/admin.js',
+    ];
 }

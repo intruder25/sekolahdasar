@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\widgets\ActiveForm;
 use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
@@ -15,7 +15,10 @@ if($model->id==''){
 
 <div class="row">
 	
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+			'id'=>'form-data-siswa',
+			'type' => ActiveForm::TYPE_VERTICAL
+		]); ?>
 	<div class="col-md-6">
     <?= $form->field($model, 'nomorInduk')->textInput(['maxlength' => 50, 'value'=>$model->nomorInduk, 'readonly'=>'readonly']) ?>
 

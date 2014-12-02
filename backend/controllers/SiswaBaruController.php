@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use app\models\Siswa;
-use app\models\SiswaSearch;
+use app\models\SiswaBaru;
+use app\models\SiswaBaruSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SiswaController implements the CRUD actions for Siswa model.
+ * SiswaBaruController implements the CRUD actions for SiswaBaru model.
  */
-class SiswaController extends Controller
+class SiswaBaruController extends Controller
 {
     public function behaviors()
     {
@@ -27,14 +27,14 @@ class SiswaController extends Controller
     }
 
     /**
-     * Lists all Siswa models.
+     * Lists all SiswaBaru models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SiswaSearch();
+        $searchModel = new SiswaBaruSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-		
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -42,7 +42,7 @@ class SiswaController extends Controller
     }
 
     /**
-     * Displays a single Siswa model.
+     * Displays a single SiswaBaru model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class SiswaController extends Controller
     }
 
     /**
-     * Creates a new Siswa model.
+     * Creates a new SiswaBaru model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Siswa();
+        $model = new SiswaBaru();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idSiswa]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class SiswaController extends Controller
     }
 
     /**
-     * Updates an existing Siswa model.
+     * Updates an existing SiswaBaru model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -90,17 +90,8 @@ class SiswaController extends Controller
         }
     }
 
-	public function actionSiswabaru(){
-		
-        return $this->render('index-siswa-baru');
-	}
-
-	public function actionAddsiswabaru(){
-		return $this->render('add-siswa-baru');	
-	}
-	
     /**
-     * Deletes an existing Siswa model.
+     * Deletes an existing SiswaBaru model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -113,15 +104,15 @@ class SiswaController extends Controller
     }
 
     /**
-     * Finds the Siswa model based on its primary key value.
+     * Finds the SiswaBaru model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Siswa the loaded model
+     * @return SiswaBaru the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Siswa::findOne($id)) !== null) {
+        if (($model = SiswaBaru::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

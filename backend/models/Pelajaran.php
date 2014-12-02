@@ -17,6 +17,7 @@ use Yii;
  */
 class Pelajaran extends \yii\db\ActiveRecord
 {
+	public $maxId;
     /**
      * @inheritdoc
      */
@@ -56,4 +57,15 @@ class Pelajaran extends \yii\db\ActiveRecord
             'statusAktif' => 'Status Aktif',
         ];
     }
+	
+	public function newKodeMapel(){
+		if($this->isNewRecord){
+			$lasIdMapel = $this->findBySql('SELECT max(id) as maxId FROM '.self::tableName())->all();	
+			$nextIdMapel = $lasIdMapel[0]['maxId']+1;
+			$kodeMapel = 'P-'.str_pad($nextIdMapel,3,'0',STR_PAD_LEFT);
+			return $kodeMapel;
+		}else{
+			return $this->kodeMapel;	
+		}
+	}
 }

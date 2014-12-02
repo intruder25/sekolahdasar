@@ -37,7 +37,24 @@ $pageSubTitle  = isset($this->params['page-subtitle'])?$this->params['page-subti
             ]);
             $menuItems1 = [
                 ['label' => 'Dashboard', 'url' => ['/site/index']],
-				['label' => 'Data Siswa', 'url' => ['/siswa/index']],
+				[
+					'label' => 'Siswa', 
+					//'url' => ['/siswa/index'],
+					'items' => [
+						['label'=>'Data Siswa', 'url'=>['/siswa/index']],
+						['label'=>'Kelas', 'url'=>['/kelas/index']],
+					],
+				],
+				[
+					'label' => 'Pelajaran', 
+					//'url' => ['/pelajaran/index'],
+					'items' => [
+						['label'=>'Mata Pelajaran', 'url'=>['/pelajaran/index']],
+						['label'=>'Setting Penilaian',],
+						['label'=>'Nilai Siswa',],
+					],
+				],
+				['label' => 'Guru', 'url' => ['/guru/index']],
             ];
 			$menuItems2 = [];
             if (Yii::$app->user->isGuest) {

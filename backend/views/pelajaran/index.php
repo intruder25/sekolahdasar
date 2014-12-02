@@ -48,10 +48,6 @@ $this->params['breadcrumbs'][] = ['label'=>'Data Pelajaran','template' =>'<li>'.
 					'contentOptions' => ['style'=>'width:150px;']
 				],
 				[
-					'attribute' => 'semester',
-					'contentOptions' => ['style'=>'width:200px;']
-				],
-				[
 					'attribute' => 'statusAktif',
 					'contentOptions' => ['style'=>'width:100px;']
 				],

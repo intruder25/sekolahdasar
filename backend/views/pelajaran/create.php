@@ -1,21 +1,20 @@
 <?php
 
 use yii\helpers\Html;
-
+use rmrevin\yii\fontawesome\FA;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Pelajaran */
 
-$this->title = 'Create Pelajaran';
-$this->params['breadcrumbs'][] = ['label' => 'Pelajarans', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Tambah data pelajaran';
+$this->params['page-title'] = 'Tambah Data Pelajaran';
+$this->params['breadcrumbs'][] = ['label'=>'Data Pelajaran','template' =>'<li>'.FA::icon('book').' {link}</li>', 'url' => ['index']];
+$this->params['breadcrumbs'][] = "Tambah data pelajaran";
 ?>
-<div class="pelajaran-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+<div class="clearfix s-row">
+	<div class="col-md-12">
+		<?= $this->render('_form', [
+            'model' => $model,
+        ]) ?>
+    </div>
 </div>
