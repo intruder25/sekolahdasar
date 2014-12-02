@@ -41,6 +41,18 @@ class TahunAjaranController extends Controller
         ]);
     }
 
+	
+	public function actionDetail()
+    {
+        $searchModel = new TahunAjaranSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->renderPartial('detail', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single TahunAjaran model.
      * @param integer $id
@@ -61,7 +73,20 @@ class TahunAjaranController extends Controller
     public function actionCreate()
     {
         $model = new TahunAjaran();
+		
+		if (Yii::$app->request->isAjax && $model->load($_POST)) {
+            Yii::$app->response->format = 'json';
+			return \yii\widgets\ActiveForm::validate($model);
+        }
+		
+		$searchModel = new TahunAjaranSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        return $this->renderPartial('detail', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+		/*
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -69,6 +94,7 @@ class TahunAjaranController extends Controller
                 'model' => $model,
             ]);
         }
+		*/
     }
 
     /**

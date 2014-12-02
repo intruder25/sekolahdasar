@@ -95,7 +95,23 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
-.btn, .form-control{
+
+#ta-container{
+	max-height:340px;
+	overflow-y:auto;	
+}
+#modal-tahun-ajaran .modal-dialog{
+	width:900px;	
+}
+#modal-tahun-ajaran .modal-dialog .modal-header{
+	background:	#337ab7;
+	color:#fff;
+}
+#modal-tahun-ajaran .modal-dialog .modal-body{
+	min-height:400px;	
+}
+
+.btn, .form-control, .modal-no-round>.modal-dialog>.modal-content{
 	border-radius:0px;	
 }
 

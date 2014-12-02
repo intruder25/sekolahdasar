@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\grid\GridView;
 use rmrevin\yii\fontawesome\FA;
 use yii\helpers\ArrayHelper;
+use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\SiswaSearch */
@@ -43,7 +44,7 @@ $this->params['breadcrumbs'][] = '';//$model->namaGuru;
                     </tr>
                     <tr>
                     	<td colspan="2">
-                        <?= Html::button('Tahun Ajaran',['class'=>'btn btn-warning']) ?>
+                        <?= Html::button('Tahun Ajaran',['class'=>'btn btn-warning', 'data-target'=>'#modal-tahun-ajaran','data-toggle'=>'modal']) ?>
                         <?= Html::button('Update',['class'=>'btn btn-info pull-right', 'id'=>'update-detail-kelas', 'data-idkelas'=>$kelas->id, 'data-iddkelas'=>'', ]) ?>
                         </td>
                     </tr>
@@ -70,6 +71,17 @@ $this->params['breadcrumbs'][] = '';//$model->namaGuru;
 </div>
 
 <?php
+Modal::begin([
+    'header' => '<h4>Tahun Pelajaran</h4>',
+	'options' => ['class'=>'fade modal modal-no-round'],
+	'id'=>'modal-tahun-ajaran',
+]);
+echo Html::tag('div','Loading',['class'=>'loader hide']);
+echo Html::tag('div','',['id'=>'result-tahun-ajaran']);
+	
+Modal::end();
+
+
 $this->registerJs('
 	$("#tahun-ajaran").change(function(e){
 		var idkelas = $(this).data("idkelas");
@@ -87,6 +99,21 @@ $this->registerJs('
 			//$(this).attr("data-iddkelas", data.id);
 			$("#update-detail-kelas").data("iddkelas", data.id);
 			$(".loader2").addClass("hide");
+		});
+	});
+	
+	$("#modal-tahun-ajaran").on("shown.bs.modal",function(e){
+		$.ajax({
+			url:"'.Url::to(['tahun-ajaran/detail']).'",
+			type:"GET",
+			beforeSend:function(e){
+				$("#modal-tahun-ajaran").find(".loader").removeClass("hide");
+				$("#modal-tahun-ajaran").find("#result-tahun-ajaran").addClass("hide");
+			}
+		}).done(function(data,message){
+			$("#modal-tahun-ajaran").find("#result-tahun-ajaran").html(data);
+			$("#modal-tahun-ajaran").find(".loader").addClass("hide");
+			$("#modal-tahun-ajaran").find("#result-tahun-ajaran").removeClass("hide");
 		});
 	});
 	
@@ -113,5 +140,25 @@ $this->registerJs('
 			$(".loader2").addClass("hide");
 		});
 	})
+	
+	$(document).on("click","#simpan-tahun-ajaran", function(e){
+		var _url = $(this).closest("form").attr("action");
+		//alert(url);
+		var _data = $(this).closest("form").serialize();
+		$.ajax({
+			url:_url,
+			type:"POST",
+			data:_data,
+			beforeSend:function(e){
+				$("#modal-tahun-ajaran").find(".loader").removeClass("hide");
+				$("#modal-tahun-ajaran").find("#result-tahun-ajaran").addClass("hide");
+			}
+		}).done(function(data,message){
+			$("#modal-tahun-ajaran").find("#result-tahun-ajaran").html(data);
+			$("#modal-tahun-ajaran").find(".loader").addClass("hide");
+			$("#modal-tahun-ajaran").find("#result-tahun-ajaran").removeClass("hide");
+		})
+		
+	});
 ');
 ?>
