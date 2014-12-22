@@ -25,84 +25,43 @@ AppAsset::register($this);
 </head>
 <body>
     <?php $this->beginBody() ?>
-<div class="container-fluid"  id="header-wrapper">
+<div class="row"  id="header-wrapper">
     <header class="container sc-header">
-    	<div class="row" id="header-content">
-	        <div class="col-md-2 col-md-offset-1 col-sm-4 image-header">
-            	<img src="<?php echo BaseUrl::base(true)?>/images/logo.png" alt="logo anakemas" />
-            </div>
-	        <div class="col-md-9 col-sm-8 text-header">
-	        	<h3 class="header-title">Anak Emas</h3>
-                <p class="header-subtitle">Mempersiapkan Generasi Berkualitas</p>
-	        </div>
-        </div>
-        <div class="row" id="header-menu">
-			<?php
-                NavBar::begin([
-					'renderInnerContainer' => false, // ini untuk ngilangin div.container default dari yii
-                    'options' => [
-                        'class' => 'navbar-inverse sc-nav-top',
-                    ],
-                ]);
-				$menuItems = [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-					[
-						'label' => 'Tentang Kami',
-						'items' =>[
-							['label' => 'PAUD', 'url' => ['/site/about']],
-							['label' => 'Sekolah Dasar', 'url' => ['#']],
-							['label' => 'TPQ', 'url' => ['#']]
-						]
-						
-					],
-					['label' => 'Kontak Kami', 'url' => ['/site/contact']],
-					[
-						'label' => 'Galeri',
-						'items' => [
-							['label' => 'Foto', 'url' => ['#']],
-							['label' => 'Video', 'url' => ['#']]
-						]
-					],
-					['label' => 'Artikel', 'url' => ['#']],
-					['label' => 'Berita', 'url' => ['#']],
-					['label' => 'Agenda', 'url' => ['#']],
-					['label' => 'Download', 'url' => ['#']],
-				];
-				/*
-                $menuItems = [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact Us', 'url' => ['/site/contact']],
-                    ['label' => 'School Update', 'url' => ['/post/index']],
+        <?php
+            NavBar::begin([
+                'brandLabel' => 'School Name',
+                'brandUrl' => Yii::$app->homeUrl,
+                'options' => [
+                    'class' => 'navbar-inverse navbar-fixed-top sc-nav-top',
+                ],
+            ]);
+            $menuItems = [
+                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'About', 'url' => ['/site/about']],
+                ['label' => 'Contact Us', 'url' => ['/site/contact']],
+                ['label' => 'School Update', 'url' => ['/post/index']],
+            ];
+			$menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+            /*
+            if (Yii::$app->user->isGuest) {
+                $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+            } else {
+                $menuItems[] = [
+                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                    'url' => ['/site/logout'],
+                    'linkOptions' => ['data-method' => 'post']
                 ];
-				*/
-                
-                /*
-				$menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-                if (Yii::$app->user->isGuest) {
-                    $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-                    $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-                } else {
-                    $menuItems[] = [
-                        'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                        'url' => ['/site/logout'],
-                        'linkOptions' => ['data-method' => 'post']
-                    ];
-                }
-                */
-                echo Nav::widget([
-                    'options' => ['class' => 'navbar-nav nav-anakemas'],
-                    'items' => $menuItems,
-                ]);
-                NavBar::end();
-            ?>
-        </div>
-	</header>
-</div>    	
-<div class="container-fluid" id="main-wrapper">
-    <div class="container sc-main">
-    	<div class="row">
-	        <div class="col-md-12 carousel-lg">
+            }
+            */
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-right'],
+                'items' => $menuItems,
+            ]);
+            NavBar::end();
+        ?>
+        <div class="row">
+	        <div class="col-md-12">
 	        <?php
 	        	echo Carousel::widget([
 	        		'items' => [
@@ -136,7 +95,10 @@ AppAsset::register($this);
 	        ?>
 	        </div>
         </div>
-    
+	</header>
+</div>    	
+<div class="row">
+    <div class="container" id="main-wrapper">
 	    <?= Breadcrumbs::widget([
 	        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
 	    ]) ?>
@@ -194,17 +156,6 @@ AppAsset::register($this);
     </footer>
 </div>
     <?php $this->endBody() ?>
-    <script>
-		$(function(e){
-			
-    		var lt_dropdown = $('.dropdown-menu>.active>a').html();
-			var dtoggel = $('.dropdown-menu>.active').parent().siblings();
-			var parent_text = dtoggel.html().replace('<b class="caret"></b>','');
-			dtoggel.html(parent_text+' <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> '+lt_dropdown+'');
-			dtoggel.parent().addClass('active');
-			
-		});
-    </script>
 </body>
 </html>
 <?php $this->endPage() ?>

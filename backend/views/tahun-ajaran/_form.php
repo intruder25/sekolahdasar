@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -11,6 +12,7 @@ use yii\widgets\ActiveForm;
 <div class="tahun-ajaran-form">
 
     <?php $form = ActiveForm::begin([
+		'action'=>Url::to(['tahun-ajaran/create'])
 	]); ?>
 
     <?= $form->field($model, 'periodeTahun')->textInput(['maxlength' => 50,'enableAjaxValidation'=>true]) ?>

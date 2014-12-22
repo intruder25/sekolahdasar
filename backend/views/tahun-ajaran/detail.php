@@ -29,7 +29,7 @@ use yii\grid\GridView;
 	</div>
     <div class="col-md-5">
     	<?= $this->render('_form', [
-			'model' => $searchModel,
+			'model' => $model,
 		]) ?>
     </div>
 </div>

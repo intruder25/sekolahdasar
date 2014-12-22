@@ -44,10 +44,12 @@ class TahunAjaranController extends Controller
 	
 	public function actionDetail()
     {
+		$model = new TahunAjaran();
         $searchModel = new TahunAjaranSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->renderPartial('detail', [
+			'model'=>$model,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -79,6 +81,7 @@ class TahunAjaranController extends Controller
 			return \yii\widgets\ActiveForm::validate($model);
         }
 		
+		/*
 		$searchModel = new TahunAjaranSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -86,6 +89,8 @@ class TahunAjaranController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+		*/
+		
 		/*
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

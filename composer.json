@@ -27,7 +27,8 @@
 		"kartik-v/yii2-widget-datepicker": "*",
         "kartik-v/yii2-widget-datetimepicker": "*",
         "kartik-v/yii2-detail-view": "dev-master",
-        "kartik-v/yii2-widgets": "*"
+        "kartik-v/yii2-widgets": "*",
+        "himiklab/yii2-easy-thumbnail-image-helper": "*"
 		
     },
     "require-dev": {

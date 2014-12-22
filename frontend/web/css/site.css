@@ -1,8 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Macondo);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://fonts.googleapis.com/css?family=Dancing+Script);
+
 html,
 body {
     height: 100%;
-    background: url(../images/background/bg_main.png);
-    background-color: #E2F0D6;
+    /*background: url(../images/background/bg_main.png);*/
+    background-color:#20834F;
 }
 .btn{
 	border-radius: 0px;
@@ -51,6 +55,10 @@ body {
     color: #c55;
     font-style: italic;
 }
+.text-header{
+	vertical-align:central;	
+}
+
 
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
@@ -64,24 +72,30 @@ a.asc:after, a.desc:after {
     padding-left: 5px;
 }
 
-#header-wrapper{
-	background: url(../images/background/bg_header.png);
-	background-color:  #95AB63;
-	padding: 10px 0px;
+#header-wrapper, #main-wrapper{
+	/*background: url(../images/background/bg_header.png);
+	background-color:  #95AB63;*/
 }
-#main-wrapper{
-	background-color: #F6FFE0;
-	padding-top: 100px;
+.sc-main, .sc-header{
+	background-color: #fff;
+	/*padding-top: 100px;*/
 }
 #footer-wrapper{
 	padding: 20px 1px;
 }
 .sc-nav-top{
-	background: url(../images/background/bg_header.png);
-	background-color:  #95AB63;
+	/*background: url(../images/background/bg_header.png);
+	background-color:  #95AB63;*/
 	border:none;
+	border-radius:0px;
+	margin-bottom:0px;
+	z-index: 10;
 	
 }
+
+
+
+/*
 .sc-nav-top .navbar-header a, .navbar-header button, .sc-nav-top ul.navbar-nav>li>a{
 	color:#FFF;
 	font-weight:bold;
@@ -103,6 +117,7 @@ a.asc:after, a.desc:after {
 	background:#FFF;
 	color:#95AB63;
 }
+*/
 a.asc:after {
     content: /*"\e113"*/ "\e151";
 }
@@ -149,10 +164,8 @@ a.desc:after {
 	margin-top: 40px;
 	padding-top: 20px;
 }
-
-.sc-carousel{
-	height: 400px;
-	top:50px;
+.sc-header>#header-content{
+	margin-bottom:25px;	
 }
 
 .sc-carousel img.image-center{
@@ -236,4 +249,81 @@ a.desc:after {
 	display:inline-block;
 	padding:10px 15px; 	
 	background-color:#95AB63;
+}
+.carousel-lg{
+	padding:0px;	
+}
+
+/* RESPONSIVE!!! LETAK PALING BAWAH------------------------------------------------*/
+@media (max-width: 768px) { 
+	.image-header>img{
+		width:auto;
+		display:block;
+		margin:2px auto;
+	}
+	.header-title{
+		font-family:'Macondo';
+		font-size:30px;
+		margin-bottom:-5px;
+		text-align:center;
+	}
+	.header-subtitle{
+		font-family: 'Mistral';
+		font-size:20px;
+		text-align:center;
+	}
+	.sc-header{
+		margin-top:70px;	
+	}
+	.sc-nav-top{
+		z-index:999;
+		width:100%;
+		top:0px;
+		margin:0px -15px;
+		position:absolute;	
+	}
+	.caption-slider{
+		display:none;
+		opacity:0;	
+	}
+}
+@media (min-width: 768px) { 
+	.header-title{
+		font-family:'Macondo';
+		font-size:40px;
+		margin-bottom:-5px;
+	}
+	.header-subtitle{
+		font-family: 'Mistral';
+		font-size:30px;
+	}
+	.image-header{
+		width:140px;
+		padding-right:0px;	
+	}
+	
+	.sc-nav-top ul.navbar-nav>li.active, .sc-nav-top ul.navbar-nav>li.active:hover{
+		background: none repeat scroll 0 0 #57AE81;
+		border-radius: 0 0 4px 4px;
+		margin-bottom: -20px;
+		padding-bottom: 20px;
+		padding-top: 15px;
+	}
+	.sc-nav-top ul.navbar-nav>li.active>a, .sc-nav-top ul.navbar-nav>li.active>a:hover{
+		background: none repeat scroll 0 0 #57AE81;
+		color: #fff;
+		margin-top: -15px;
+		padding-bottom: 1px;		
+	}
+	
+}
+
+@media(min-width:1024px){
+	.nav-anakemas{
+		margin-left:50px;	
+	}	
+	.sc-carousel{
+		height: 400px;
+	/*	top:50px;*/
+	}
 }
