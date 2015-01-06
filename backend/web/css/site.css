@@ -115,6 +115,10 @@ a.desc:after {
 	border-radius:0px;	
 }
 
+.btn-group>.btn{
+	border-radius: 4px;	
+}
+
 .login-box{
 	margin-top:10%;	
 	padding:0px;
@@ -159,6 +163,16 @@ a.desc:after {
 .btn-action{
 	padding:2px 3px;
 	cursor:pointer;
+}
+
+.action-group-top{
+	margin-bottom:25px;	
+	margin-top:10px;
+}
+
+.action-group-top .btn-action-article{
+	border-radius:0px;
+	width:120px;
 }
 
 /*-- SPINNER -----------------------------------------*/

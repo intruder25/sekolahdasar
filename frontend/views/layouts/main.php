@@ -7,7 +7,8 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use frontend\widgets\Alert;
-
+use himiklab\thumbnail\EasyThumbnailImage;
+use rmrevin\yii\fontawesome\FA;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
@@ -32,7 +33,7 @@ AppAsset::register($this);
             	<img src="<?php echo BaseUrl::base(true)?>/images/logo.png" alt="logo anakemas" />
             </div>
 	        <div class="col-md-9 col-sm-8 text-header">
-	        	<h3 class="header-title">Anak Emas</h3>
+	        	<h1 class="header-title">Anak Emas</h1>
                 <p class="header-subtitle">Mempersiapkan Generasi Berkualitas</p>
 	        </div>
         </div>
@@ -48,11 +49,15 @@ AppAsset::register($this);
                     ['label' => 'Home', 'url' => ['/site/index']],
 					[
 						'label' => 'Tentang Kami',
+						'url' => ['/site/about']
+						/*
 						'items' =>[
-							['label' => 'PAUD', 'url' => ['/site/about']],
-							['label' => 'Sekolah Dasar', 'url' => ['#']],
-							['label' => 'TPQ', 'url' => ['#']]
-						]
+							['label' => 'Yayasan Anak Emas', 'url' => ['/site/about']],
+							['label' => 'PAUD', 'url' => ['/site/about', 'sub'=>'paud']],
+							['label' => 'Sekolah Dasar', 'url' => ['/site/about', 'sub'=>'sd']],
+							['label' => 'TPQ', 'url' => ['/site/about', 'sub'=>'tpq'], 'active']
+						],
+						*/
 						
 					],
 					['label' => 'Kontak Kami', 'url' => ['/site/contact']],
@@ -92,6 +97,7 @@ AppAsset::register($this);
                 */
                 echo Nav::widget([
                     'options' => ['class' => 'navbar-nav nav-anakemas'],
+					//'activateItems '=>false,
                     'items' => $menuItems,
                 ]);
                 NavBar::end();
@@ -102,6 +108,9 @@ AppAsset::register($this);
 <div class="container-fluid" id="main-wrapper">
     <div class="container sc-main">
     	<div class="row">
+        	 <div class="or-spacer-top col-md-10 col-md-offset-1">
+            	<div class="mask"></div>
+            </div>
 	        <div class="col-md-12 carousel-lg">
 	        <?php
 	        	echo Carousel::widget([
@@ -121,7 +130,7 @@ AppAsset::register($this);
 										  </span>',
 						],
 						[
-							'content' => '<img src="'.BaseUrl::base(true).'/images/slider3.jpg" class="center-block" />',
+							'content' => '<img src="'.BaseUrl::base(true).'/images/slider3.jpg" class="center-block slider-image" />',
 							'caption' => '<span class="caption-slider caption-left">
 												<h4 style="text-align:left;">Enjoying Friendship</h4>
 												<p>Students can receive a better lesson in a comfortable classroom atmosphere</p>
@@ -135,12 +144,15 @@ AppAsset::register($this);
 	        	
 	        ?>
 	        </div>
+            <div class="or-spacer col-md-10 col-md-offset-1">
+            	<div class="mask"></div>
+            </div>
         </div>
-    
-	    <?= Breadcrumbs::widget([
+	    <?php /*Breadcrumbs::widget([
 	        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-	    ]) ?>
-	    <?= Alert::widget() ?>
+	    ])*/ ?>
+        
+	    <?php /* Alert::widget()*/ ?>
 	   	<?= $content ?>
     </div>
 </div>    

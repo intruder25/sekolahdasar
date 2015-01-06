@@ -57,6 +57,9 @@ class User extends ActiveRecord implements IdentityInterface
 
             ['role', 'default', 'value' => self::ROLE_USER],
             ['role', 'in', 'range' => [self::ROLE_USER]],
+            [['nama', 'kota'], 'string', 'max' => 100],
+            [['telepon'], 'string', 'max' => 30],
+            [['alamat'], 'string', 'max' => 255],
         ];
     }
 

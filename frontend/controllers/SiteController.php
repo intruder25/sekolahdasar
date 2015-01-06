@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\LoginForm;
+use common\models\Site;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -109,15 +110,23 @@ class SiteController extends Controller
 
             return $this->refresh();
         } else {
-            return $this->render('contact', [
+            return $this->render('contact_map', [
                 'model' => $model,
             ]);
         }
     }
 
-    public function actionAbout()
+    public function actionAbout($sub='')
     {
-        return $this->render('about');
+		$model = new Site();
+		if($sub==''){
+			$content = $model->findOne(1);
+		}else{
+			$content = $model->findOne(['name'=>$sub]);	
+		}
+        return $this->render('about', [
+			'content'=>$content
+		]);
     }
 
     public function actionSignup()

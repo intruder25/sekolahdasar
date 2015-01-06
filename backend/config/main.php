@@ -29,6 +29,18 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+		'urlManager' => [
+            // here is your backend URL rules
+            'enablePrettyUrl' => true,
+        ],
+        'urlManagerFrontEnd' => [
+            'class' => 'yii\web\urlManager',
+            'baseUrl' => 'sekolah.dev/',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
+
+
     ],
     'params' => $params,
 ];

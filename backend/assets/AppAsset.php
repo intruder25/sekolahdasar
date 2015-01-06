@@ -29,5 +29,6 @@ class AppAsset extends AssetBundle
     ];
 	public $js = [
         'js/admin.js',
+		'js/bootbox.min.js',
     ];
 }

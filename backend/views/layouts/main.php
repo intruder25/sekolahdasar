@@ -35,6 +35,7 @@ $pageSubTitle  = isset($this->params['page-subtitle'])?$this->params['page-subti
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
+			/*
             $menuItems1 = [
                 ['label' => 'Dashboard', 'url' => ['/site/index']],
 				[
@@ -56,6 +57,19 @@ $pageSubTitle  = isset($this->params['page-subtitle'])?$this->params['page-subti
 				],
 				['label' => 'Guru', 'url' => ['/guru/index']],
             ];
+			*/
+			$menuItems1 = [
+                ['label' => 'Dashboard', 'url' => ['/site/index']],
+				[
+					'label' => 'Content', 
+					//'url' => ['/siswa/index'],
+					'items' => [
+						['label'=>'Artikel', 'url'=>['article/index']],
+						['label'=>'Kegiatan', 'url'=>['#']],
+						['label'=>'File', 'url'=>['#']],
+					],
+				],
+			];
 			$menuItems2 = [];
             if (Yii::$app->user->isGuest) {
                 $menuItems2[] = ['label' => 'Login', 'url' => ['/site/login']];

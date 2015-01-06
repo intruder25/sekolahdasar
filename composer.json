@@ -28,7 +28,9 @@
         "kartik-v/yii2-widget-datetimepicker": "*",
         "kartik-v/yii2-detail-view": "dev-master",
         "kartik-v/yii2-widgets": "*",
-        "himiklab/yii2-easy-thumbnail-image-helper": "*"
+        "himiklab/yii2-easy-thumbnail-image-helper": "*",
+        "2amigos/yii2-ckeditor-widget": "*",
+        "iutbay/yii2-kcfinder": "*"
 		
     },
     "require-dev": {
